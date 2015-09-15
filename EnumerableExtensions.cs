@@ -9,11 +9,16 @@ public static class EnumerableExtensions
 	{
 		return input
 			.GroupBy(groupBy)
-			.Select(g => new
+			.Select(g => new PivotRow<TGroupKey, TColumn, TElement>
 			{
 				Value = g.Key,
 				Data = g.GroupBy(pivotBy)
-					.ToDictionary(keySelector, elementSelector)
+					.Select(p => new PivotColumnItem<TColumn, TElement>
+					{
+						Column = keySelector.Invoke(p),
+						Element = elementSelector.Invoke(p)
+					})
+					
 			});
 	}
 }
