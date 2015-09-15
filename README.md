@@ -35,4 +35,6 @@ We can now pivot on this list like this:
 
 Which gives a list like this:
 
-    <insert picture here at some point...>
+[![enter image description here][1]][1]
+
+  [1]: https://raw.githubusercontent.com/WiredUK/EnumerableExtensions/master/example-results.png
